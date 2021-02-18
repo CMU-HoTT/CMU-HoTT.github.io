@@ -1,0 +1,27 @@
+body{
+    background-color:#fff;
+    background-image:url('torus-rainbow.png');
+    background-size:70%;
+    background-position:center top;
+    background-repeat: repeat-y;
+}
+h1,h2{
+    text-align:center;
+}
+#content{
+    width:920px;
+    margin:0px auto;
+    padding:20px;
+    background-color:#ccc;
+    background-color:rgba(204,204,204,0.8);
+    color:#333;
+    font-family:sans-serif;
+}
+a{
+    color:red;
+    text-decoration:none;
+}
+a:hover{
+    text-decoration:underline;
+}
+
