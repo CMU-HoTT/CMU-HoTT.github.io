@@ -8,6 +8,17 @@ body{
 h1,h2{
     text-align:center;
 }
+h4,h5{
+    display:inline;
+}
+.talkTitle{
+    font-size:1.5em;
+}
+.speaker{
+    font-size:1.1em;
+    font-weight:normal;
+    font-style:oblique;
+}
 #content{
     width:920px;
     margin:0px auto;
@@ -16,9 +27,10 @@ h1,h2{
     background-color:rgba(204,204,204,0.8);
     color:#333;
     font-family:sans-serif;
+    font-size:1.1em;
 }
 a{
-    color:red;
+    color:purple;
     text-decoration:none;
 }
 a:hover{
