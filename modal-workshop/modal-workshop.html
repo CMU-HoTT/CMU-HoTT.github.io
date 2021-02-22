@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-03-18 Mon 12:47 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Geometry in Modal Homotopy Type Theory</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Felix Wellen" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<style> *{margin-left:auto; margin-right:auto; max-width: 58em}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Geometry in Modal Homotopy Type Theory</h1>
+<div class="org-center">
+<p>
+<b><font size="5">Carnegie Mellon University</font></b><br />
+<b><font size="5">March 11-15, 2019</font></b><br />
+</p>
+
+
+<div class="figure">
+<p><a href="img/ct3.jpg"><img src="img/ct3.jpg" alt="ct3.jpg" /></a><br />
+</p>
+</div>
+</div>
+<p>
+Homotopy Type Theory (HoTT) is one of the tools to reason within a higher topos. The recent extensions of HoTT by modalities has led to stronger relations to the use of higher toposes in Topology, Differential Geometry and Algebraic Geometry. This workshop is about the development of Modal HoTT and its applications to Geometry.<br />
+</p>
+<div id="outline-container-org363f371" class="outline-2">
+<h2 id="org363f371">Invited speakers</h2>
+<div class="outline-text-2" id="text-org363f371">
+<p>
+<a href="http://reh.math.uni-duesseldorf.de/~arndt/">Peter Arndt</a><br />
+<a href="https://www2.mathematik.tu-darmstadt.de/~buchholtz/">Ulrik Buchholtz</a><br />
+<a href="http://ericfinster.github.io/">Eric Finster</a><br />
+Egbert Rijke<br />
+<a href="https://ncatlab.org/nlab/show/Urs+Schreiber">Urs Schreiber</a> <br />
+<a href="http://home.sandiego.edu/~shulman/">Mike Shulman</a><br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgadff6f8" class="outline-2">
+<h2 id="schedule"><a id="orgadff6f8"></a>Preliminary schedule</h2>
+<div class="outline-text-2" id="text-schedule">
+<p>
+All talks are in the Steinberg Auditorium, A53 in Baker Hall (<a href="https://www.google.de/maps/place/Baker+Hall/@40.4413216,-79.9464174,17z/data=!4m5!3m4!1s0x8834f220c39f5479:0x13a0f93d36e6191e!8m2!3d40.4413175!4d-79.9442287">google-maps</a>).<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Time</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Monday</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Tuesday</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Wednesday</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Thursday</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Friday</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">9:30-10:30</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="abstracts.html#rijke">Rijke I</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="abstracts.html#schreiber">Schreiber I</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="abstracts.html#buchholtz">Buchholtz I</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="abstracts.html#schreiber">Schreiber II</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="abstracts.html#buchholtz">Buchholtz II</a></td>
+</tr>
+
+<tr>
+<td class="org-right">10:30-11:00</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Coffee</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Coffee</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Coffee</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Coffee</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Coffee</td>
+</tr>
+
+<tr>
+<td class="org-right">11:00-12:00</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="abstracts.html#shulman">Shulman I</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="abstracts.html#myers">Myers I</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="abstracts.html#finster">Finster I</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="abstracts.html#rijke">Rijke III</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="abstracts.html#finster">Finster II</a></td>
+</tr>
+
+<tr>
+<td class="org-right">12:00-14:00</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Lunch break</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Lunch break</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Lunch break</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Lunch break</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Lunch break</td>
+</tr>
+
+<tr>
+<td class="org-right">14:00-15:00</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="abstracts.html#arndt">Arndt I</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="abstracts.html#shulman">Shulman II</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Free</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="abstracts.html#arndt">Arndt II</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="abstracts.html#myers">Myers II</a></td>
+</tr>
+
+<tr>
+<td class="org-right">15:00-15:30</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Coffee</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Coffee</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Free</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Coffee</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Coffee</td>
+</tr>
+
+<tr>
+<td class="org-right">15:30-16:30</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="abstracts.html#lessard">Lessard</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="abstracts.html#rijke">Rijke II</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Free</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="abstracts.html#frey">Frey</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><a href="abstracts.html#wellen">Wellen</a></td>
+</tr>
+
+<tr>
+<td class="org-right">18:30</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Dinner</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org24fbc36" class="outline-2">
+<h2 id="recordings"><a id="org24fbc36"></a>Recordings</h2>
+<div class="outline-text-2" id="text-recordings">
+<p>
+Most talks were recorded and uploaded to <a href="https://www.youtube.com/channel/UCfQdw845tAduRwW6FnWC9KQ">youtube</a>. The sound is not good, but you should be able to understand everything if you turn up the volume (internal notebook speakers might not be sufficient).<br />
+There are links to the recordings on the <a href="abstracts.html">abstracts page</a>.<br />
+<a href="live-sream.html">Here</a> is a description of how the recording and live-streaming was done.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org3afea70" class="outline-2">
+<h2 id="org3afea70">Online Participation (outdated)</h2>
+<div class="outline-text-2" id="text-org3afea70">
+<p>
+If you can't come to the workshop, it is possible to join the workshop online via <a href="http://zoom.us/">zoom</a>. This means you can view a live stream of the talks and ask questions. The url to join the meeting is<br />
+<a href="https://cmu.zoom.us/j/892135990">https://cmu.zoom.us/j/892135990</a><br />
+If you want to participate via zoom, it is a good idea to install the software on your computer (there is also a browser based version) and test video and audio (as far as I know, this is only possible with the installed version).<br />
+If you are not asking a question, please mute your microphone.<br />
+If you zoom in from Germany, please take note that the time difference right now is <b>5 hours</b>.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org1320737" class="outline-2">
+<h2 id="org1320737">Practical information</h2>
+<div class="outline-text-2" id="text-org1320737">
+<p>
+All talks will be in the Steinberg Auditorium (Room A53) in Baker Hall.<br />
+<a href="https://www.cmu.edu/visit/index.html">Here</a> is some official information on how to get to the campus.<br />
+And <a href="https://www.cmu.edu/visit/maps-parking-transportation.html">here</a> is a campus map.<br />
+</p>
+</div>
+<div id="outline-container-org5ca1ecd" class="outline-3">
+<h3 id="org5ca1ecd">Getting around in Pittsburgh</h3>
+<div class="outline-text-3" id="text-org5ca1ecd">
+<p>
+The bus fare is paid on entering the bus and is $2.75 if you pay in cash (there is no change). If you need to change the bus to get somewhere, you have to pay again. It is possible to get a bus card and load it using a credit card at bus stations (≠ bus stop). A bus station in Shadyside is Negley station (<a href="https://www.google.de/maps/place/East+Busway+at+Negley+Station+D/@40.4539493,-79.9350931,16.5z/data=!4m5!3m4!1s0x8834f212ef940167:0xac09c380df0b750f!8m2!3d40.4568!4d-79.932492">google-maps</a>). You can also get a bus card from a machine at the airport. It is close to the exit where the bus '28X' leaves.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org24f73b2" class="outline-3">
+<h3 id="org24f73b2">Getting from the airport to the city</h3>
+<div class="outline-text-3" id="text-org24f73b2">
+<ul class="org-ul">
+<li>Bus: It is called '28X' and its stop is found by following the Ground Transportation' signs. You have to pay $2.75 in cash when you enter the bus and there is no change. If you want to the <b>Shadyside Inn</b>, you should get off the 28X about one hour into the bus ride at the crossing of Fifth Avenue and South Aiken Avenue. If you need to take another bus, you will have to pay $2.75 again on entering.<br /></li>
+<li>The 'Ground Transportation' signs also lead you to taxis, ubers and lyfts. Uber and lyft work well in Pittsburgh. You need a <b>smartphone</b> to use the latter two.<br /></li>
+<li>A more convenient way which is likely to be cheaper than uber/lyft/taxis is the 'Super Shuttle'. There is a counter for it in the terminal and it is payable by credit card. It means a big car will drive you and others directly to your destinations in pittsburgh. You might have to wait a bit, maybe even a long time. You do <b>not need a smartphone</b> or app to use it.<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0d4d2f8" class="outline-3">
+<h3 id="org0d4d2f8">Meet-up Sunday evening</h3>
+<div class="outline-text-3" id="text-org0d4d2f8">
+<p>
+I made a reservation (Felix Wellen) in a pub called "the Yard" in Shadyside (<a href="https://www.google.de/maps/place/The+Yard+Gastropub/@40.4498623,-79.9338586,16.25z/data=!4m8!1m2!2m1!1syard!3m4!1s0x8834f2111c4fe16b:0xfcde83a931552e54!8m2!3d40.4513676!4d-79.9342139">google-maps</a>) for 6pm.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orga1ec343" class="outline-3">
+<h3 id="orga1ec343">Workshop Dinner</h3>
+<div class="outline-text-3" id="text-orga1ec343">
+<p>
+The workshop dinner will be on Tuesday at 6:30pm (18:30) at Chengdu Gourmet (<a href="https://www.google.de/maps/place/Chengdu+Gourmet/@40.4294947,-79.9222563,17z/data=!4m5!3m4!1s0x8834f1fcfcc5dd2d:0xc4d7d0610231af0e!8m2!3d40.4293758!4d-79.9223057">location in google maps</a>).<br />
+The price will be below $20 without tip (it depends a bit on how many people will decide to join).<br />
+It is essentially like a buffet only that it will be served directly at your table;)<br />
+The food will be mostly traditional Chinese. There will be enough vegetarian options. If you hate spicy food, it might get a bit difficult.<br />
+<b>Please</b> let us know on Monday the 11th, if you want to join the dinner!<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org55e31ab" class="outline-3">
+<h3 id="org55e31ab">Lunch options</h3>
+<div class="outline-text-3" id="text-org55e31ab">
+<p>
+Since it is Spring Break at CMU, most places will be closed. Here are some exceptions:<br />
+</p>
+<ul class="org-ul">
+<li>At the university center, at least the Schatz Dining Hall (<a href="https://www.google.de/maps/place/Carnegie+Mellon+University/@40.4424529,-79.9431523,17z/data=!4m5!3m4!1s0x8834f21f58679a9f:0x88716b461fc4daf4!8m2!3d40.4428081!4d-79.9430128">google-maps</a>) is open during the lunch breaks.<br /></li>
+<li>There are noodle and rice bowls at iNoodle (<a href="https://www.google.de/maps/place/iNoodle/@40.4433854,-79.9477742,17z/data=!3m1!4b1!4m5!3m4!1s0x8834f2216b483163:0x8d3ae026f50d26ae!8m2!3d40.4433813!4d-79.9455855">google-maps</a>). Best ask a local how to get there.<br /></li>
+<li>In the university center, you can buy snacks at a shop called entropy.<br /></li>
+</ul>
+<p>
+For an overview on campus, see <a href="https://apps.studentaffairs.cmu.edu/dining/conceptinfo/?page=listConcepts">cmu dining locations page</a>. You can also walk to craig street (<a href="https://www.google.de/maps/@40.4437816,-79.9484676,18z">google-maps</a>), which has a lot of options.<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org51192cd" class="outline-2">
+<h2 id="org51192cd">Free afternoon</h2>
+<div class="outline-text-2" id="text-org51192cd">
+<p>
+Wednesday afternoon will be free. Here are some recommendations what you could do:<br />
+</p>
+<ul class="org-ul">
+<li>The <a href="https://www.phipps.conservatory.org/">Phipps Conservatory</a> is very close to campus, just in Shenley Park (the Park behind Baker Hall). It costs around $17 and you can relax watching lots of exotic plants.<br /></li>
+<li>On the other side of campus, you can walk down Forbes to get to the <a href="https://carnegiemnh.org/">Carnegie Museum of Natural History</a>.<br /></li>
+<li>Shenley Park looks a bit like it is supposed to be enjoyed from the inside of a car when you enter it coming from campus, but if you go further in, there are some trails you can use for a walk.<br /></li>
+<li>If you want a longer walk and a bigger Park, you can go through Squirrel Hill to Frick Park.<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb73b725" class="outline-2">
+<h2 id="orgb73b725">Participants</h2>
+<div class="outline-text-2" id="text-orgb73b725">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Mathieu Anel</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Carnegie Mellon University</td>
+</tr>
+
+<tr>
+<td class="org-left">Peter Arndt</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">University of Düsseldorf</td>
+</tr>
+
+<tr>
+<td class="org-left">Steve Awodey</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Carnegie Mellon University</td>
+</tr>
+
+<tr>
+<td class="org-left">Bruno Bentzen</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Carnegie Mellon University</td>
+</tr>
+
+<tr>
+<td class="org-left">Ulrik Buchholtz</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Technische Universität Darmstadt</td>
+</tr>
+
+<tr>
+<td class="org-left">Eric Finster</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">University of Birmingham</td>
+</tr>
+
+<tr>
+<td class="org-left">Jonas Frey</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Carnegie Mellon University</td>
+</tr>
+
+<tr>
+<td class="org-left">Harry Gindi</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">University of Regensburg</td>
+</tr>
+
+<tr>
+<td class="org-left">Jesse Han</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">University of Pittsburgh</td>
+</tr>
+
+<tr>
+<td class="org-left">Joseph Helfer</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Stanford University</td>
+</tr>
+
+<tr>
+<td class="org-left">Matthew Hilty</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">-</td>
+</tr>
+
+<tr>
+<td class="org-left">Joe Johnson</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Mary Baldwin University</td>
+</tr>
+
+<tr>
+<td class="org-left">Nachiket Karnick</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Indiana University Bloomington</td>
+</tr>
+
+<tr>
+<td class="org-left">Alex Kavvos</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Wesleyan University</td>
+</tr>
+
+<tr>
+<td class="org-left">Greg Langmead</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Carnegie Mellon University</td>
+</tr>
+
+<tr>
+<td class="org-left">Paul Lessard</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">University of Colorado Boulder</td>
+</tr>
+
+<tr>
+<td class="org-left">David Myers</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">John Hopkins University</td>
+</tr>
+
+<tr>
+<td class="org-left">Alexander Gietelink Oldenziel</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">-</td>
+</tr>
+
+<tr>
+<td class="org-left">Robert Rennie</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">University of Illinois at Urbana-Champaign</td>
+</tr>
+
+<tr>
+<td class="org-left">Egbert Rijke</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">University of Illinois at Urbana-Champaign</td>
+</tr>
+
+<tr>
+<td class="org-left">Mitchell Riley</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Wesleyan University</td>
+</tr>
+
+<tr>
+<td class="org-left">Justin Scarfy</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">University of British Columbia</td>
+</tr>
+
+<tr>
+<td class="org-left">Urs Schreiber</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">NYU Abu Dhabi and Czech Academy of Science</td>
+</tr>
+
+<tr>
+<td class="org-left">Mike Shulman</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">University of San Diego</td>
+</tr>
+
+<tr>
+<td class="org-left">Maxim Sokhatsky</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">National Technical University of Ukraine</td>
+</tr>
+
+<tr>
+<td class="org-left">Jon Sterling</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Carnegie Mellon University</td>
+</tr>
+
+<tr>
+<td class="org-left">Zhenyu Sun</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Renmin University of China</td>
+</tr>
+
+<tr>
+<td class="org-left">Koundinya Vajjha</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">University of Pittsburgh</td>
+</tr>
+
+<tr>
+<td class="org-left">Floris van Doorn</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Univeristy of Pittsburgh</td>
+</tr>
+
+<tr>
+<td class="org-left">L. S. Wang</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">McGill University</td>
+</tr>
+
+<tr>
+<td class="org-left">Felix Wellen</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Carnegie Mellon University</td>
+</tr>
+
+<tr>
+<td class="org-left">Colin Zwanziger</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Carnegie Mellon University</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org157e318" class="outline-2">
+<h2 id="org157e318">More details about the topic of the workshop</h2>
+<div class="outline-text-2" id="text-org157e318">
+<p>
+While Modal HoTT is about both, monadic and comonadic modalities, most talks will be about monadic modalities. Also, it is quite likely that the majority of the talks will freely use and reason in HoTT. Details about both, HoTT and (monadic) modalities, may be found in the <a href="https://homotopytypetheory.org/book/">HoTT-Book</a>.<br />
+Topology may be studied in a concise and natural way using what we know about homotopy types in HoTT. This is done in Mike Shulman's article <a href="https://arxiv.org/abs/1509.07584">Brouwer's fixed-point theorem in real-cohesive homotopy type theory</a>. The introduction may also be helpful in understanding the general idea of applying Modal HoTT to Geometry.<br />
+Some ideas of Urs Schreiber of applying Modal HoTT are linked and explained <a href="https://ncatlab.org/schreiber/show/Some+thoughts+on+the+future+of+modal+homotopy+type+theory">here</a>.<br />
+</p>
+
+<p>
+Since it is my (Felix Wellen) research topic, there is also some information on applying Modal HoTT on my personal <a href="http://www.andrew.cmu.edu/user/fwellen/">website</a>.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org498e3af" class="outline-2">
+<h2 id="org498e3af">Acknowledgment</h2>
+<div class="outline-text-2" id="text-org498e3af">
+<p>
+The workshop is supported by the Air Force Office of Scientific Research through MURI grant FA9550-15-1-0053.<br />
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2018-11-13 Tue 00:00</p>
+<p class="author">Author: Felix Wellen</p>
+<p class="date">Created: 2019-03-18 Mon 12:47</p>
+<p class="validation"></p>
+</div>
+</body>
+</html>

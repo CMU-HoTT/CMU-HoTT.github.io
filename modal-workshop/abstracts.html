@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-03-18 Mon 12:44 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Abstracts</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Felix Wellen" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<style> *{margin-left:auto; margin-right:auto; max-width: 58em}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Abstracts</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#arndt">Peter Arndt</a>
+<ul>
+<li><a href="#abstract-motivic-homotopy-theory">Abstract motivic homotopy theory</a></li>
+</ul>
+</li>
+<li><a href="#buchholtz">Ulrik Buchholtz</a>
+<ul>
+<li><a href="#non-abelian-cohomology">Non-abelian cohomology</a></li>
+<li><a href="#universes-in-small-examples">Universes in small examples</a></li>
+</ul>
+</li>
+<li><a href="#finster">Eric Finster</a>
+<ul>
+<li><a href="#a-type-theoretic-view-of-goodwillie-calculus">A Type-theoretic View of Goodwillie Calculus</a></li>
+</ul>
+</li>
+<li><a href="#frey">Jonas Frey</a>
+<ul>
+<li><a href="#a-language-for-closed-cartesian-bicategories">A language for closed cartesian bicategories</a></li>
+</ul>
+</li>
+<li><a href="#lessard">Paul Lessard</a>
+<ul>
+<li><a href="#spectra-as-locally-finite-Z-groupoids">Spectra as Locally Finite Z-Groupoids</a></li>
+</ul>
+</li>
+<li><a href="#myers">David Jaz Myers</a>
+<ul>
+<li><a href="#logical-topology-and-axiomatic-cohesion">Logical Topology and Axiomatic Cohesion</a></li>
+<li><a href="#degrees-dimension-and-crispness">Degrees, Dimensions, and Crispness</a></li>
+</ul>
+</li>
+<li><a href="#rijke">Egbert Rijke</a>
+<ul>
+<li><a href="#orga5c0900">Introduction: Reflective subuniverses and modalities (joint work with Shulman and Spitters).</a></li>
+<li><a href="#org5ad6c22">Separated types (joint work with Christensen, Opie, and Scoccola).</a></li>
+<li><a href="#org4191297">Modal descent (joint work with Wellen).</a></li>
+</ul>
+</li>
+<li><a href="#schreiber">Urs Schreiber</a>
+<ul>
+<li><a href="#equivariant-super-homotopy-theory">Equivariant Super Homotopy Theory</a></li>
+</ul>
+</li>
+<li><a href="#shulman">Mike Shulman</a>
+<ul>
+<li><a href="#comonadic-modalities-and-cohesion">Comonadic modalities and cohesion</a></li>
+<li><a href="#semantics-of-higher-modalities">Semantics of higher modalities</a></li>
+</ul>
+</li>
+<li><a href="#wellen">Felix Wellen</a>
+<ul>
+<li><a href="#org1353842">Geometry in Modal HoTT</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+<a href="modal-workshop.html">Back.</a> <br />
+</p>
+<div id="outline-container-org39a5d5f" class="outline-2">
+<h2 id="arndt"><a id="org39a5d5f"></a>Peter Arndt</h2>
+<div class="outline-text-2" id="text-arndt">
+</div>
+<div id="outline-container-org12a3087" class="outline-3">
+<h3 id="abstract-motivic-homotopy-theory"><a id="org12a3087"></a>Abstract motivic homotopy theory</h3>
+<div class="outline-text-3" id="text-abstract-motivic-homotopy-theory">
+<p>
+We will start with a quick introduction to motivic homotopy theory, emphasizing the parallels to the homotopy theory of topological spaces.<br />
+We will then develop some basic motivic homotopy theory in an abstract setup: We replace the infinity category of motivic spaces by a presentable, cartesian closed infinity category (PCCC) and the multiplicative group scheme by a commutative group object G in this category. Starting from this, we will construct basic geometric objects like projective spaces, see a representation theorem for G-bundles, a Snaith type algebraic K-theory spectrum, Adams operations, rational splittings and a rational Eilenberg-MacLane spectrum.<br />
+</p>
+
+<p>
+(<a href="https://www.youtube.com/watch?v=f0wpcNs8hQo">recording</a>)<br />
+</p>
+
+<p>
+The results and constructions, at least the unstable ones, are closer to a formalization in homotopy type theory than usual presentations of motivic homotopy theory. Furthermore, there is an initial example of our setup, the classifying PCCC for commutative groups, which we hope to be a model for univalent homotopy type theory. Results and constructions carried out in this particular PCCC with its generic commutative group carry over to general PCCCs with commutative groups.<br />
+</p>
+
+<p>
+(<a href="https://youtu.be/sTl8637a2Zo">recording</a>)<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org2cca595" class="outline-2">
+<h2 id="buchholtz"><a id="org2cca595"></a>Ulrik Buchholtz</h2>
+<div class="outline-text-2" id="text-buchholtz">
+</div>
+<div id="outline-container-org490d40d" class="outline-3">
+<h3 id="non-abelian-cohomology"><a id="org490d40d"></a>Non-abelian cohomology</h3>
+<div class="outline-text-3" id="text-non-abelian-cohomology">
+<p>
+I will survey the theory of gerbes and bands from the HoTT point of view and then discuss how modalities play a role in studying non-abelian cohomology.<br />
+</p>
+
+<p>
+(<a href="https://youtu.be/eB6HwGLASJI">recording</a>)<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf337730" class="outline-3">
+<h3 id="universes-in-small-examples"><a id="orgf337730"></a>Universes in small examples</h3>
+<div class="outline-text-3" id="text-universes-in-small-examples">
+<p>
+I will give concrete descriptions of the universes and selected subuniverses in a range of toy models of cohesion.<br />
+</p>
+
+<p>
+<a href="https://youtu.be/KpwFDVMxnsM">(recording</a>)<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb8e4848" class="outline-2">
+<h2 id="finster"><a id="orgb8e4848"></a>Eric Finster</h2>
+<div class="outline-text-2" id="text-finster">
+</div>
+<div id="outline-container-org55f38bc" class="outline-3">
+<h3 id="a-type-theoretic-view-of-goodwillie-calculus"><a id="org55f38bc"></a>A Type-theoretic View of Goodwillie Calculus</h3>
+<div class="outline-text-3" id="text-a-type-theoretic-view-of-goodwillie-calculus">
+<p>
+Goodwillie's calculus of functors is an advanced technique in homotopy theory for interpolating between stable and unstable information.  I will present the basics of the subject from the point of view of type theory, explaining its connection to the theory of lex modalities.<br />
+</p>
+
+<p>
+(<a href="https://youtu.be/bcUk4l6B8jI">recording I</a>, <a href="https://youtu.be/xIHq6XcVEBE">recording II</a>)<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orga69528d" class="outline-2">
+<h2 id="frey"><a id="orga69528d"></a>Jonas Frey</h2>
+<div class="outline-text-2" id="text-frey">
+</div>
+<div id="outline-container-org5c8fd6c" class="outline-3">
+<h3 id="a-language-for-closed-cartesian-bicategories"><a id="org5c8fd6c"></a>A language for closed cartesian bicategories</h3>
+<div class="outline-text-3" id="text-a-language-for-closed-cartesian-bicategories">
+<p>
+A <b>cartesian bicategory</b> is a bicategory B such that<br />
+</p>
+<ol class="org-ol">
+<li>all hom-categories have finite products, and<br /></li>
+<li>the full subcategory of left adjoints has finite products<br /></li>
+<li>which extend to a symmetric monoidal structure on B.<br /></li>
+</ol>
+<p>
+We call a cartesian bicategory <b>closed</b> if all pre- and postcomposition functors have right adjoints. The canonical example of a cartesian bicategory is the bicategory of categories and profunctors, where composition is given by a coends, and the closed structure by ends. I present a natural-deduction style language for cartesian bicategories which controls the "mixed variances" appearing  in calculations with (co)ends via syntactic conditions on contexts and judgments.<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgccd0808" class="outline-2">
+<h2 id="lessard"><a id="orgccd0808"></a>Paul Lessard</h2>
+<div class="outline-text-2" id="text-lessard">
+</div>
+<div id="outline-container-org986c3ce" class="outline-3">
+<h3 id="spectra-as-locally-finite-Z-groupoids"><a id="org986c3ce"></a>Spectra as Locally Finite Z-Groupoids</h3>
+<div class="outline-text-3" id="text-spectra-as-locally-finite-Z-groupoids">
+<p>
+In this talk we will synthesize the obvious presentation of the reduced suspension from "the book" and Kan's combinatorial treatment of spectra to produce a new presentation of the (∞,1)-category of spectra as weak Z-groupoids satisfying a local finiteness condition. We will follow a natural path beginning at the question of why the simplex category provides such a good nerve for categories and ending with spectra as the category of weak models for a sketch of the essentially algebraic theory of Z-groupoids; we will present a naive stable homotopy hypothesis.<br />
+</p>
+
+<p>
+<a href="https://youtu.be/nXHUHdCvDl8">(recording</a>)<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org4dbd5f9" class="outline-2">
+<h2 id="myers"><a id="org4dbd5f9"></a>David Jaz Myers</h2>
+<div class="outline-text-2" id="text-myers">
+</div>
+<div id="outline-container-org27531af" class="outline-3">
+<h3 id="logical-topology-and-axiomatic-cohesion"><a id="org27531af"></a>Logical Topology and Axiomatic Cohesion</h3>
+<div class="outline-text-3" id="text-logical-topology-and-axiomatic-cohesion">
+<p>
+In his thesis, Penon introduced a logical topology carried by any type, and related it to infinitesimals in synthetic algebraic and differential geometry. In this talk, I will relate this intrinsic topology of types to the cohesion they gain through the modalities of cohesive type theory. We will see that a set is Liebnizian in the sense of Lawvere if and only if it is de Morgan, and that the set truncation of the shape of a type is its set of logical connected components.<br />
+(<a href="myers-handout.pdf">slides, screen reading version,</a> <a href="myers-slides.pdf">slides</a>, <a href="https://youtu.be/GbzQMsr3Jf4">recording</a>)<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7f9f1d0" class="outline-3">
+<h3 id="degrees-dimension-and-crispness"><a id="org7f9f1d0"></a>Degrees, Dimensions, and Crispness</h3>
+<div class="outline-text-3" id="text-degrees-dimension-and-crispness">
+<p>
+Naively, taking the degree of a polynomial should give a function from polynomials into the natural numbers. But in cohesion, most polynomial algebras of interested are connected, so this map would have to be constant. In this talk, I will discuss polynomials and vector spaces in HoTT, and the type of upper naturals in which their degrees and dimensions naturally land. We will then see that every crisp polynomial or vector space has a natural number degree or dimension.<br />
+</p>
+
+<p>
+(<a href="myers-handout-II.pdf">slides, screen reading version,</a> <a href="myers-slides-II.pdf">slides</a>, <a href="https://youtu.be/VNp-f_9MnVk">recording</a>)<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org96f1367" class="outline-2">
+<h2 id="rijke"><a id="org96f1367"></a>Egbert Rijke</h2>
+<div class="outline-text-2" id="text-rijke">
+</div>
+<div id="outline-container-orga5c0900" class="outline-3">
+<h3 id="orga5c0900">Introduction: Reflective subuniverses and modalities (joint work with Shulman and Spitters).</h3>
+<div class="outline-text-3" id="text-orga5c0900">
+<p>
+We introduce reflective subuniverses and modalities following the most basic example: truncations. This talk is introductory, and is aimed at familiarizing the audience with the basic concepts. We will prove the most basic properties, such as closure under pullbacks and dependent products, and we introduce the factorization system of connected maps and truncated maps.<br />
+</p>
+
+<p>
+(<a href="https://youtu.be/OQthe5HpiKM">recording</a>)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org5ad6c22" class="outline-3">
+<h3 id="org5ad6c22">Separated types (joint work with Christensen, Opie, and Scoccola).</h3>
+<div class="outline-text-3" id="text-org5ad6c22">
+<p>
+A type is said to be separated with respect to a reflective subuniverse if its identity types are local. The basic example is that (n+1)-truncated types are separated types for the reflective subuniverse of n-truncated types. We show that the subuniverse of separated types is again a reflective subuniverse.<br />
+</p>
+
+<p>
+(<a href="https://youtu.be/c9JNHhJQjt4">recording</a>)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org4191297" class="outline-3">
+<h3 id="org4191297">Modal descent (joint work with Wellen).</h3>
+<div class="outline-text-3" id="text-org4191297">
+<p>
+We introduce the reflective factorization system associated to a modality. Unlike the factorization system of connected and modal maps, the left class in the reflective factorization system is not stable under pullbacks. However, it satisfies the 3-for-2 property. In the basic example of the n-truncations, we show that a map is in the right class (i.e. an etale map) if and only if it is right orthogonal to the map 1 -&gt; Sⁿ⁺¹. Using the reflective factorization system we prove a descent theorem for modalities.<br />
+</p>
+
+<p>
+(<a href="https://youtu.be/InaRkqKdyp4">recording</a>)<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org3c1f408" class="outline-2">
+<h2 id="schreiber"><a id="org3c1f408"></a>Urs Schreiber</h2>
+<div class="outline-text-2" id="text-schreiber">
+</div>
+<div id="outline-container-orgcd950f3" class="outline-3">
+<h3 id="equivariant-super-homotopy-theory"><a id="orgcd950f3"></a>Equivariant Super Homotopy Theory</h3>
+<div class="outline-text-3" id="text-equivariant-super-homotopy-theory">
+<p>
+Adding systems of adjoint modal operators to homotopy(-)type(-)theory makes it an elegant and powerful formal language for reasoning about higher geometry, specifically and incrementally for a) differential topology, b) differential geometry, c) supergeometry.<br />
+The first two of these stages are discussed in other talks at this meeting.<br />
+In my talks  I will:<br />
+</p>
+<ol class="org-ol">
+<li>describe higher supergeometry as intended categorical semantics for the full system of modalitites;<br /></li>
+<li>mention interesting theorems that should lend themselves to formalization in type theory;<br /></li>
+<li>indicate motivation from and application to the unofficial Millennium Problem of formulating M-theory (joint with Hisham Sati and Vincent Braunack-Mayer).<br /></li>
+</ol>
+
+<p>
+(<a href="https://ncatlab.org/schreiber/files/EquivariantSuperHomotopyTheory120314a.pdf">slides</a>, <a href="https://youtu.be/fFxAZ0XXyp0">recording I</a>, <a href="https://www.youtube.com/watch?v=feruofe1WlM">recording II</a>)<br />
+For more see <a href="http://ncatlab.org/schreiber/show/Equivariant+Super+Homotopy+Theory">nlab-page for the talk.</a><br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org48b87ad" class="outline-2">
+<h2 id="shulman"><a id="org48b87ad"></a>Mike Shulman</h2>
+<div class="outline-text-2" id="text-shulman">
+</div>
+<div id="outline-container-org0557d3f" class="outline-3">
+<h3 id="comonadic-modalities-and-cohesion"><a id="org0557d3f"></a>Comonadic modalities and cohesion</h3>
+<div class="outline-text-3" id="text-comonadic-modalities-and-cohesion">
+<p>
+While (idempotent) monadic modalities can be defined purely internally as in the HoTT book, the same is not true of comonadic modalities.  The most convenient way to add comonadic modalities to to type theory is to modify the judgmental structure to reflect them, leading to a "modal type theory".  I will introduce the ideas of modal type theories, and then explore in more detail the case of "cohesive type theory" which has one comonadic modality and two monadic ones in an adjoint string.<br />
+</p>
+
+<p>
+(<a href="https://youtu.be/GA93Hjh-Alk">recording</a>)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org1479709" class="outline-3">
+<h3 id="semantics-of-higher-modalities"><a id="org1479709"></a>Semantics of higher modalities</h3>
+<div class="outline-text-3" id="text-semantics-of-higher-modalities">
+<p>
+Under the interpretation of type theory in categories and higher categories, modalities correspond to various kinds of reflective or coreflective subcategories and factorization systems, many of which arise naturally in geometric models.  I will describe the categorical structures corresponding to the basic kinds of monadic and comonadic modalities, and how they arise from notions of topos-theoretic geometry such as subtoposes, concrete quasitoposes, local toposes, and cohesive toposes.<br />
+</p>
+
+<p>
+(<a href="https://youtu.be/Wcpi1vVMrCs">recording</a>)<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcfaa236" class="outline-2">
+<h2 id="wellen"><a id="orgcfaa236"></a>Felix Wellen</h2>
+<div class="outline-text-2" id="text-wellen">
+</div>
+<div id="outline-container-org1353842" class="outline-3">
+<h3 id="org1353842">Geometry in Modal HoTT</h3>
+<div class="outline-text-3" id="text-org1353842">
+<p>
+(<a href="https://youtu.be/oHc552-hzBY">recording</a>)<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2019-02-25 Mon 00:00</p>
+<p class="author">Author: Felix Wellen</p>
+<p class="date">Created: 2019-03-18 Mon 12:44</p>
+<p class="validation"></p>
+</div>
+</body>
+</html>
