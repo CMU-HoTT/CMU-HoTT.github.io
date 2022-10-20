@@ -3,6 +3,7 @@ plugins:
 relative_links:
   enabled: true
   collections: true
+markdown: kramdown
 theme: minimal
 # include:
   # - CONTRIBUTING.md
