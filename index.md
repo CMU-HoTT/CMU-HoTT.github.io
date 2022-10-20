@@ -1,4 +1,6 @@
-<!-- # CMU HoTT Group Website -->
+---
+title: CMU HoTT Group Website 
+---
 
 * [Our main page in the CMU content management system](https://www.cmu.edu/dietrich/philosophy/hott/)
 * [The 2021 CMU HoTT Graduate Student Workshop](workshop2021.html)
