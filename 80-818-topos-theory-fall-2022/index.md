@@ -17,4 +17,4 @@ Past sessions:
 | October 03    | Owen Milner      | The Zariski Site |
 | October 05    | Owen Milner      | The Zariski Site |
 | October 10    | Andrew Swan      | The Object Classifier |
-| October 12    | Andrew Swan      | The Inhabited object Classifier |
+| October 12    | Andrew Swan      | The Inhabited Object Classifier |
