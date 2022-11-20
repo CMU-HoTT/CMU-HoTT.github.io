@@ -21,3 +21,7 @@ Past sessions:
 | October 24    | Kian Cho         | Classifying toposes via syntactic sites| 
 | October 26    | Kian Cho         | Classifying toposes via syntactic sites| 
 | October 31    | Steve Awodey     | Classifying toposes as spaces of models| 
+| November 2    | Steve Awodey     | Butz-Moerdijk Covering Theorem| 
+| November 7    | Steve Awodey     | Joyal-Tierney Groupoid Representation| 
+| November 9    | Steve Awodey     | Joyal-Tierney Groupoid Representation| 
+| November 14   | Mathieu Anel     | Locales and Toposes| 
