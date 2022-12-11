@@ -24,10 +24,10 @@ Past sessions:
 | November 2    | Steve Awodey     | Butz-Moerdijk Covering Theorem| 
 | November 7    | Steve Awodey     | Joyal-Tierney Localic Groupoid Representation| 
 | November 9    | Steve Awodey     | Joyal-Tierney Localic Groupoid Representation| 
-| November 14   | ??     | ??  | 
-| November 16   | Mathieu Anel     | The Scott Adjunction  | 
-| November 21   | Mathieu Anel     | The Scott Adjunction  | 
-| November 28   | Fernando Larrain | The classifying topos of real numbers | 
-| November 30   | Andrew Swan      | Independence results about real numbers | 
-| December 5    | Rio Alvarado     | [Giraud's theorem](giraud.pdf) | 
-| December 7    | Rio Alvarado     | [Giraud's theorem](giraud.pdf) | 
+| November 14   | Mathieu Anel     | Points of Locales  | 
+| November 16   | Mathieu Anel     | Points of Topoi  | 
+| November 21   | Mathieu Anel     | Topoi with enough Points  | 
+| November 28   | Fernando Larrain | The Classifying Topos of Real Rumbers | 
+| November 30   | Andrew Swan      | Independence Results about Real Numbers | 
+| December 5    | Rio Alvarado     | [Giraud's Theorem](giraud.pdf) | 
+| December 7    | Rio Alvarado     | [Giraud's Theorem](giraud.pdf) | 
